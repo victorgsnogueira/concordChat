@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { auth, db, addUserToFirestore } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import MessageSender from '../components/MessageSender';
 import InboxButton from '../components/InboxButton';
 import InboxPanel from '../components/InboxPanel';
-import UserActivityPanel from '../components/UserActivityPanel';
 import AddFriendButton from '../components/AddFriendButton';
 import AddFriendPanel from '../components/AddFriendPanel';
-import RightPanelButton from '../components/RightPanelButton';
+import MessageSender from '../components/MessageSender';
 import RightPanel from '../components/RightPanel';
 import ProfilePicture from '../components/ProfilePicture';
 import { days, months, years } from '../components/DataArrays';
@@ -203,24 +201,27 @@ const Channels = () => {
         </div>
       ) : (
         <>
-          <div className="flex-grow p-6 bg-[#222222]">
-            <MessageSender/>
-          </div>
-          <Sidebar currentUserId={currentUserId} />
+          <div className='h-full w-full flex relative'>
+            <Sidebar currentUserId={currentUserId} />
+            <MessageSender />
 
-          <div className="fixed top-[20px] right-[254px] flex space-x-2">
-            <RightPanel />
-            <div className="flex space-x-2">
-              <InboxButton onClick={() => setIsInboxOpen(!isInboxOpen)} />
-              <AddFriendButton onClick={() => setIsAddFriendOpen(!isAddFriendOpen)} />
-              <RightPanelButton />
+
+            <div className="flex flex-row-reverse">
+              <RightPanel />
+              <div className="flex space-x-2 absolute">
+                <div className='relative'>
+                  <InboxButton onClick={() => setIsInboxOpen(!isInboxOpen)} />
+                  <InboxPanel isOpen={isInboxOpen} onClose={() => setIsInboxOpen(false)} />
+                </div>
+                <div className='relative'>
+                  <AddFriendButton onClick={() => setIsAddFriendOpen(!isAddFriendOpen)} />
+
+                  <AddFriendPanel isOpen={isAddFriendOpen} onClose={() => setIsAddFriendOpen(false)} />
+                  {/* <RightPanelButton /> */}
+                </div>
+              </div>
             </div>
           </div>
-
-          <UserActivityPanel />
-
-          <InboxPanel isOpen={isInboxOpen} onClose={() => setIsInboxOpen(false)} />
-          <AddFriendPanel isOpen={isAddFriendOpen} onClose={() => setIsAddFriendOpen(false)} />
         </>
       )}
     </div>

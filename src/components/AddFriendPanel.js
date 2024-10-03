@@ -26,7 +26,7 @@ const AddFriendPanel = ({ isOpen, onClose }) => {
     return (
         <div
             ref={panelRef}
-            className="fixed top-16 right-[303px] bg-[#181818] text-white rounded-lg shadow-[#121212] shadow-sm w-80 p-4"
+            className="h-32 absolute right-0  bg-[#181818] text-white rounded-lg shadow-[#121212] shadow-sm w-80 p-4 mt-1"
         >
             <div className="flex items-center mb-4">
                 <box-icon name='user-plus' type='solid' color='white' size="24px"></box-icon>

@@ -3,7 +3,7 @@ import 'boxicons';
 
 const UserActivityPanel = () => {
     return (
-        <div className='fixed bottom-8 right-[26px] bg-[#181818] text-white rounded-lg p-2 w-[210px] h-[50px] flex items-center border border-[#181818]'>
+        <div className=' bg-[#181818] text-white rounded-lg p-2 w-[210px] h-[50px] flex items-center border border-[#181818] mb-5'>
             {/* Perfil do Usuário */}
             <div className='flex items-center mr-4'>
                 <div className='w-8 h-8 rounded-full bg-white flex items-center justify-center'>

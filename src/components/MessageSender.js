@@ -20,14 +20,14 @@ const MessageSender = ({ onSendMessage }) => {
   };
 
   return (
-    <div className="fixed bottom-4 left-0 right-0 mx-auto max-w-[1100px]">
+    <div className=" w-[100%] h-full self-end mb-[16px]">
       <div className="flex items-center bg-[#121212] p-2 rounded-lg shadow-sm">
         {/* Botão de adicionar arquivo */}
         <button
           className="flex p-2 text-gray-400 rounded-lg hover:text-white hover:bg-[#181818]"
           onMouseEnter={() => setIsFileIconHovered(true)}
           onMouseLeave={() => setIsFileIconHovered(false)}
-        >
+        > 
           <box-icon name="plus" color={isFileIconHovered ? 'white' : '#666'}></box-icon>
         </button>
 
